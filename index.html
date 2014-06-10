@@ -1,3 +1,8 @@
+---
+layout: post
+title: HashDist
+---
+
 <!DOCTYPE html>
 <html>
 
@@ -16,9 +21,9 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
       <header class="inner">
-        <a id="forkme_banner" href="https://github.com/hashdist/hashdist">Fork Me on GitHub</a>
+        <a id="forkme_banner" href="https://github.com/hashdist/hashdist">Hosted by GitHub</a>
 
-        <h1 id="project_title">Hashdist</h1>
+        <h1 id="project_title">HashDist</h1>
         <h2 id="project_tagline">Build it Once</h2>
       </header>
     </div>
@@ -26,16 +31,112 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>HashDist builds complete scientific software environments so you don't have to!</h3>
+        <ul>
+          <li>
+            <div class="group row">
+              <div class="col-1"> build complete software stacks</div>
+              <div class="col-2">
+		{% highlight bash %}
+$ hit build scipy-stack.yaml {% endhighlight %}
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1"> across operating systems</div>
+              <div class="col-2">
+		<div id="image_set">
+		  <img src="./images/tux.png" alt="Linux">
+		  <img src="./images/windows.png" alt="Windows">
+		  <img src="./images/osx.png" alt="OS X">
+		</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1"> version them</div>
+              <div class="col-2">
+		{% highlight bash %}
+$ git checkout scipy-stack.yaml {% endhighlight %}
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1"> customize them in YAML</div>
+              <div class="col-2">
+		{% highlight yaml %}
+python:
+  build_with: |
+    bzip2, openssl, sqlite {% endhighlight %}
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1"> really customize them!</div>
+              <div class="col-2">
+		{% highlight yaml %}
+petsc:
+  build_with: |
+    parmetis
+  download: |
+    superlu, scalapack, mumps
+  coptflags: -O2
+  link: shared
+  debug: false {% endhighlight %}
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="center_row"> deploy production code</div>
+            </div>
+	    
+		{% highlight yaml %}
+extends: [distutils_package]
+dependencies:
+  run: [pyzmq, tornado]
 
-	
+sources:
+  - url: http://archive.ipython.org/release/2.0.0/ipython-2.0.0.tar.gz
+    key: tar.gz:j2b4bd4nn7iorbemnd6a5mxzwbkptn2c {% endhighlight %}
+          </li>
 
-	<p>Check out our wiki <a href="https://github.com/hashdist/hashdist/wiki/_pages">pages</a> or download the
-	  repository:</p>
+          <li>
+            <div class="group row">
+              <div class="center_row"> or your own customizations </div>
+            </div>
 
-	<pre><code>$ git clone https://github.com/hashdist/hashdist.git
-	</code></pre>
+	    {% highlight yaml %}
+extends: [distutils_package]
+dependencies:
+  run: [pyzmq, tornado]
 
+sources:
+  - url: https://github.com/ahmadia/ipython.git
+    key: git:68f6519cdfd23581ed7358fa1941ae1bbd76e5b3 {% endhighlight %}
+          </li>
+
+          <li>
+            <div class="group row">
+              <div class="center_row"> get started </div>
+            </div>
+
+	    {% highlight bash %}
+$ git clone https://github.com/hashdist/hashdist.git
+$ git clone https://github.com/hashdist/hashstack.git
+$ ./hashdist/bin/hit build hashstack/examples/proteus.linux2.yaml {% endhighlight %}
+          </li>
+	</ul>  
+
+
+	<h3> Documentation </h3>
+	<p>
+	The HashDist documentation is currently being revised.  The development version is available <a href="http://hashdist.readthedocs.org/en/latest/">here</a>.
+	</p>
+ 
 	<h3>Authors and Contributors</h3>
 
 	<p>
@@ -59,11 +160,12 @@
 			 class="user-mention">@lanewittgen</a>).
 	</p>
 
-	See https://github.com/hashdist/hashdist/graphs/contributors and https://github.com/hashdist/hashstack/graphs/contributors for a complete list.
+	See <a href="https://github.com/hashdist/hashdist/graphs/contributors">https://github.com/hashdist/hashdist/graphs/contributors</a> and <a href="https://github.com/hashdist/hashstack/graphs/contributors">https://github.com/hashdist/hashstack/graphs/contributors</a> for a complete list of contributors.
 
-	<h3>Support or Contact</h3>
 
-	<p>Send an email into the <a href="https://groups.google.com/forum/?fromgroups#!forum/hashdist">mailinglist</a>.</p>
+	<h3>Support and Contact</h3>
+
+	<p>Send an email to our <a href="https://groups.google.com/forum/?fromgroups#!forum/hashdist">mailing list</a> or raise an issue on GitHub.</p>
       </section>
     </div>
 
@@ -71,13 +173,15 @@
     <div id="footer_wrap" class="outer">
       <footer class="inner">
 	<p class="copyright">HashDist maintained by (<a href="https://github.com/ahmadia">@ahmadia</a>, <a
-          href="https://github.com/dagss">dagss</a> and <a href="https://github.com/certik">certik</a>
+          href="https://github.com/dagss">dagss</a> and <a href="https://github.com/certik">certik)</a>
 	</p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+	<p>
+	HashDist was developed under support from the US Army Engineer Research and Development Center.
+	</p>
+	<img src=https://proteus.usace.army.mil/_static/red_corps_castle.png style="display: block; width:128px; margin: 0 auto;"  alt="Corps Castle">
       </footer>
     </div>
-
-
 
   </body>
 </html>
