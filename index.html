@@ -64,7 +64,17 @@ $ git checkout scipy-stack.yaml {% endhighlight %}
           </li>
           <li>
             <div class="group row">
-              <div class="col-1"> customize them in YAML</div>
+              <div class="col-1"> use packages from the system</div>
+              <div class="col-2">
+		{% highlight yaml %}
+python:
+  use: host-python {% endhighlight %}
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="group row">
+              <div class="col-1"> or build your own</div>
               <div class="col-2">
 		{% highlight yaml %}
 python:
@@ -75,7 +85,7 @@ python:
           </li>
           <li>
             <div class="group row">
-              <div class="col-1"> really customize them!</div>
+              <div class="col-1"> and customize them</div>
               <div class="col-2">
 		{% highlight yaml %}
 petsc:
@@ -118,19 +128,14 @@ sources:
   - url: https://github.com/ahmadia/ipython.git
     key: git:68f6519cdfd23581ed7358fa1941ae1bbd76e5b3 {% endhighlight %}
           </li>
+	</ul>  
 
-          <li>
-            <div class="group row">
-              <div class="center_row"> get started </div>
-            </div>
-
+	<h3> Get Started </h3>
+	
 	    {% highlight bash %}
 $ git clone https://github.com/hashdist/hashdist.git
 $ git clone https://github.com/hashdist/hashstack.git
 $ ./hashdist/bin/hit build hashstack/examples/proteus.linux2.yaml {% endhighlight %}
-          </li>
-	</ul>  
-
 
 	<h3> Documentation </h3>
 	<p>
